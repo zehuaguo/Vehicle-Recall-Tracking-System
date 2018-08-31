@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+	    
+		<meta charset="utf-8">
+	    <title>Vechicle Recall Tracking System</title>
+		
+		<link rel = "stylesheet" href = "css/main.css" style = "text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+			    $("#page").mouseover(function(){
+				     $(this).addClass("button");
+			    });
+			});
+					
+		</script>
+	</head>
+	<body>
+		
+		<div class="signUpDiv">
+		  <table id = "signUpDiv">
+		   <tr>
+		     <th>&nbsp;</th>
+		     <th colspan = "2">Vehicle Recall Tracking System</th>
+			 
+		     <th>
+			  <div id = "searchblock">
+			    <div id = "search">
+			      <input type="text value="Search for......" name="searchBox"/>
+			      <button ID="InputSeacher" value="Search">Search</button>
+			    </div>
+			    <img src="img/account.png" width="30px" height="30px">
+		      </div>
+			 </th>
+		   </tr>
+		  </table>
+		</div>
+		<div id = "sit-nav">
+		  <div id = "row2">
+		    <div id = "fleet">
+			  <div class = "col">
+			    <a href = "#"><img src = "img/fleetpartners.jpg" height = "50px" width = "230px"/></a>
+			  </div>
+		    </div>
+		  </div>
+		</div>
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		
+		<!-- <div id = "blank">&nbsp</div> -->
+	<div class = "main-nav">	
+	  <div id = "all">
+		<div class="LogoDiv" style="width:500px height:500px">
+			<div>
+				<img src="img/timg.jpg">
+			</div>
+		</div>
+		
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		
+		<div class="searchDiv">
+			<div class="searchInformation">
+				<form>
+					<input class = "a" name="VIN" type="text" value="Vehicle ID Number"/>
+					<input class = "a" name="Re" type="text" value="Registration"/>
+					<input class = "a" name="CN" type="text" value="Campaign Nmuber"/>
+				
+					<label>
+						<input name="IA" value="Inactive" type="checkbox">Inactive 
+					</label>
+					<label>
+						<input name="A" value="Active" type="checkbox">Active 
+					</label>
+					<br><br>
+					<input class = "a" name="Ma" type="text" value="Mark"/>
+					<input class = "a" name="Mo" type="text" value="Model"/>
+					<input class = "a" name="Manu" type="text" value="Manufacture"/>
+					<input class = "a" name="Bu" type="text" value="Business"/>
+					<input type = "button" value = "Search" id="searchButton">
+				</form>
+			</div>
+			
+		</div>
+		
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		
+		<div class="displayDiv">
+			<p>Information of Vehicle</p>
+			<div ID="DisplayTable" style="height:200px;overflow:scroll;">
+			  <table id = selectTable>
+			    <tr>
+				  <th>VIN</th>
+				  <th>Registration</th>
+				  <th>Make</th>
+				  <th>Model</th>
+				  <th>Model Year</th>
+				  <th>Manufacturer</th>
+				  <th>Active Recall?</th>
+				  <th>No of Recalls Linked</th>
+				</tr>
+				<tr>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				</tr>
+				<tr>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				</tr>
+				<tr>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				</tr>
+				<tr>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				  <td></td>
+				</tr>
+			    
+			  </table>
+			
+			</div>
+		</div>
+		
+		<div class = "blank">&nbsp</div>
+		
+		<div class = "paging">
+		 <div>
+		  <button id="previousPage">Previous</button>
+		  <input type = "button" value = "1" id="page" class="1">
+		  <button id="page" class="2">2</button>
+		  <button id="page" class="3">3</button>
+		  <button id="nextPage">next</button>
+		 </div>
+		</div>
+	  </div>
+	</div>
+		
+	    <!-- <div id = "blank">&nbsp</div> -->
+	
+	
+	
+	
+		
+	
+	
+	</body>
+</html>
