@@ -1,0 +1,33 @@
+create table USER_admin
+(
+  ID                 NUMBER(11) not null,
+  FIRST_NAME         VARCHAR2(100),
+  LAST_NAME          VARCHAR2(100),
+  TELEPHONE          VARCHAR2(40),
+  EMAIL              VARCHAR2(60) not null,
+  ADDRESS            VARCHAR2(500),
+  CITY               VARCHAR2(60),
+  COUNTRY            VARCHAR2(100),
+  POST_CODE          VARCHAR2(100),
+  PASSWORD           VARCHAR2(24) not null,
+  STATE              VARCHAR2(25),
+  COMPANY            VARCHAR2(30),
+  primary key (ID)
+);
+
+create table USER_general
+(
+  ID                 NUMBER(11) not null,
+  FIRST_NAME         VARCHAR2(100),
+  LAST_NAME          VARCHAR2(100),
+  TELEPHONE          VARCHAR2(40),
+  EMAIL              VARCHAR2(60) not null,
+  ADDRESS            VARCHAR2(500),
+  CITY               VARCHAR2(60),
+  COUNTRY            VARCHAR2(100),
+  POST_CODE          VARCHAR2(100),
+  PASSWORD           VARCHAR2(24) not null,
+  STATE              VARCHAR2(25),
+  COMPANY            VARCHAR2(30),
+  primary key (ID)
+);

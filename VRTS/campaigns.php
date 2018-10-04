@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -26,8 +28,60 @@
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
+        <link rel = "stylesheet" href = "assets/css/campaigns.css" />
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script>
+			// function getcheck()
+			// {
+				// var checkboxvalue=documentGetElementsByName("A");
+				// var ifCheck;
+				// if(checkboxvalue[0].checked)
+				// {
+					// if(checkboxvalue[1].checked)
+						// ifCheck=" ";
+					// else
+						// ifCheck="active";
+				// }
+				// else()
+				// {
+					// if(checkboxvalue[1].checked)
+						// ifCheck="inactive";
+					// else ifCheck="no";
+				
+				// }
+				// return ifCheck;
+			// }
+			var ifcheck=" ";
+			$(document).ready(function(){
+				$("#searchButton").click(function(){
+					//alert("test");
+					$("#DisplayTable").load("loadcampaign.php?cn="+escape($("#cn").val())+"&pn="+escape($("#pn").val())+"&year="+escape($("#year").val())+"&Status"+escape(ifcheck));
+				});
+				$(".in").on("click",function(){
+					if($("#a0").is(":checked"))
+					{
+						if($("#a1").is(":checked"))
+						{ifcheck=" ";}
+						else
+						{ifcheck="active";}
+					}
+					else
+					{
+						if($("#a1").is(":checked"))
+						{ifcheck="inactive";}
+						else{
+							ifcheck="no";
+						}
+					}
+				
+				});
+			
+			});
+		
+	</script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -52,7 +106,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Home</a></li>
+                       <li class="active"><a href="index.html">Home</a></li>
                         
                         <li><a href="campaigns.html">Campaigns</a></li>
                         
@@ -85,45 +139,56 @@
             </div>
         </header>
 
-
-        <section id="contact" class="contact sections">
-            <div class="container">
-                <div class="row">
-                    <div class="main_contact whitebackground">
-                        <div class="head_title text-center">
-                            <h2>Log in</h2>
-                        </div>
-                        <div class="contact_content">
-                            <div class="col-md-6">
-                                <div class="single_left_contact">
-                                   
-
-                                        <div class="form-group">
-                                           <a href="signin by user.html"> <button type="General user" class="form-control" name="General user" placeholder="General user" required="Y"> General user</button></a>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <a href="signin by admin.html"><button type="Administrator" class="form-control" name="Administrator" placeholder="Administrator" required="Y">Administrator</button></a>
-                                        </div>
-										
-										<div class="form-group">
-                                           <a href="Register_user.php"> <button type="Register" class="form-control" name="Register" placeholder="General user" required="Y"> Register </button></a>
-                                        </div>
-
-                                       
-                                   
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="single_right_contact">
-                                    <p>If you are not registered or are having issues logging in, please contact the system administrator.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class = "main-nav">    
+      <div id = "all">
+        <div class = "blank">&nbsp</div>
+        <div class = "blank">&nbsp</div>
+        <div class = "blank">&nbsp</div>
+        
+        <div class="searchDiv">
+            <div class="searchInformation">
+                <form>
+                    <input class = "a" name="CN" id="cn" type="text" placeholder="Campaign Number"/>
+                    <input class = "a" name="PRA" id="pn" type="text" placeholder="PRA Number"/>
+                    <input class = "a" name="Ye" id="year" type="text" placeholder="Year"/><br>
+                    
+                
+                    <label>
+                        <input name="IA" class="in" value="Inactive" type="checkbox">Inactive 
+                    </label>
+                    <label>
+                        <input name="A" class="in" value="Active" type="checkbox">Active 
+                    </label>
+                    <br><br>
+                    <input type = "button" value = "Search" id="searchButton">
+                </form>
             </div>
-        </section><!-- End of Contact Section -->
+            
+        </div>
+        
+        <div class = "blank">&nbsp</div>
+        <div class = "blank">&nbsp</div>
+        <div class = "blank">&nbsp</div>
+        
+        <div class="displayDiv">
+            <p>Campaign Records</p><br>
+            <div ID="DisplayTable" style="height:200px;overflow:scroll;">
+              
+                
+              
+            
+            </div>
+        </div>
+        
+        <div class = "blank">&nbsp</div>
+        
+
+      </div>
+    </div>
+    <br>
+    <br>
+        
+        <!-- <div id = "blank">&nbsp</div> -->
 
 
 

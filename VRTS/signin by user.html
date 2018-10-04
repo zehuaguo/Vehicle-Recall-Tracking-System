@@ -16,18 +16,37 @@
 
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--For Plugins external css-->
         <link rel="stylesheet" href="assets/css/plugins.css" />
-        <link rel="stylesheet" href="assets/css/Recallfor.css" />
+        <link rel="stylesheet" href="assets/css/roboto-webfont.css" />
 
         <!--Theme custom css -->
         <link rel="stylesheet" href="assets/css/style.css">
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
-		<link rel="stylesheet" href="assets/css/responsive.css" />
+		<script>
+			$(document).ready(function(){
+				$("#foremail").keyup(function(){
+				if($("#foremail").val().length==0){
+					$("#pforemail").attr("style", "color:red");
+					$("#pforemail").text("email cannot be empty");}
+				else if($("#foremail").val().search(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{1,4}$/)==0? true: false){
+					$("#pforemail").attr("style", "color:green");
+					$("#pforemail").text("email validated");
+					$("#Login").attr("type", "submit");
+					}
+				else{
+					$("#pforemail").attr("style", "color:red");
+					$("#pforemail").text("please type on real email");
+				}
+				});
+			
+			});
 
+		
+		</script>
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
@@ -46,7 +65,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                   <a class="navbar-brand" href="http://eclipxgroup.com/"><img src="assets/images/logo.png" alt="Logo" /></a>
+                    <a class="navbar-brand" href="http://eclipxgroup.com/"><img src="assets/images/logo.png" alt="Logo" /></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -85,156 +104,44 @@
                 </div>
             </div>
         </header>
-		
-		
+
+
         <section id="contact" class="contact sections">
-        <div class = "main-nav">	
-	        <div id = "all">
+            <div class="container">
+                <div class="row">
+                    <div class="main_contact whitebackground">
+                        <div class="head_title text-center">
+                            <h2>General user Log in</h2>
+                        </div>
+                        <div class="contact_content">
+                            <div class="col-md-6">
                                 <div class="single_left_contact">
-                                    <table  action="#" id="formid">
-									<tr>
-									<th> VEHICLE</th>
-						
-									<th> CUSTODIAN</th>
-									</tr>
-									</table>
-									
-									<table action="#" id="formid">
+                                    <form action="loginuser.php" id="formid">
 
                                         <div class="form-group">
-										    <tr>
-                                            <td type="VIN"  name="VIN" placeholder="VIN" required="Y">VIN:</td>
-											<td></td>
-											<td type="Name" name="Name" placeholder="Name" required="Y">Name:</td>
-											<td></td>
-											</tr>
+                                            <input type="email" class="form-control" id="foremail" name="email" placeholder="Email" required="Y">
+											<p id="pforemail"></p>
+										</div>
+
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" id="idforpassword" name="password" placeholder="Password" required="Y">
                                         </div>
-										<div class="form-group">
-										    <tr>
-                                            <td type="Registration"  name="Registration" placeholder="Registration" required="Y">Registration:</td>
-											<td></td>
-											<td type="Contact Number" name="Contact Number" placeholder="Contact Number" required="Y">Contact Number:</td>
-											<td></td>
-											</tr>
-                                        </div>
-										<div class="form-group">
-										    <tr>
-                                            <td type="Make"  name="Make" placeholder="Make" required="Y">Make:</td>
-											<td></td>
-											<td type="Email" name="Email" placeholder="Email" required="Y">Email:</td>
-											<td></td>
-											</tr>
-                                        </div>
-										<div class="form-group">
-										    <tr>
-                                            <td type="Model"  name="Model" placeholder="Model" required="Y">Model:</td>
-											<td></td>
-											<td type="Organisation" name="Organisation" placeholder="Organisation" required="Y">Organisation:</td>
-											<td></td>
-											</tr>
-                                        </div>
-										<div class="form-group">
-										    <tr>
-                                            <td type="Model Year"  name="Model Year" placeholder="Model Year" required="Y">Model Year:</td>
-											<td></td>
-											<td type="Org Contact" name="Org Contact" placeholder="Org Contact" required="Y">Org Contact:</td>
-											<td></td>
-											</tr>
-                                        </div>
-										<div class="form-group">
-										    <tr>
-                                            <td type="FP Vehicle ID" name="FP Vehicle ID" placeholder="FP Vehicle ID" required="Y">FP Vehicle ID:</td>
-											<td></td>
-											<td type="Org Email" name="Org Email" placeholder="Org Email" required="Y">Org Email:</td>
-											<td></td>
-											</tr>
-                                        </div>
-										<div class="form-group">
-										    <tr>
-                                           <td type="Description"  name="Description" placeholder="Description" required="Y">Description:</td>
-											<td></td>
-											<td type="Org Number" name="Org Number" placeholder="Org Number" required="Y">Org Number:</td>
-											<td></td>
-											</tr>
-                                        </div>
-                                    </table>
-								</div>
-		<div class="displayDiv">
-			<br>
-			<p>CAMPAIGNS</p>
-			<br>
-			<div ID="DisplayTable" style="height:200px;overflow:scroll;">
-			  <table id = selectTable>
-			    <tr>
-				  <th>Active Recall?</th>
-				  <th>Campaign Priority</th>
-				  <th>Campaign No</th>
-				  <th>PRA No</th>
-				  <th>Description</th>
-				  <th>Rectified?</th>
-				  <th>Rectification Date</th>
-				  
-				</tr>
-				<tr>
-				  <td>YES</td>
-				  <td>Alpha</td>
-				  <td>0026370100</td>
-				  <td>0026270100</td>
-				  <td>Replace fr...</td>
-				  <td>No</td>
-				  <td>05-05-2018</td>
-				  
-				</tr>
-				<tr>
-				  <td>YES</td>
-				  <td>Alpha</td>
-				  <td>0026370100</td>
-				  <td>0026270100</td>
-				  <td>Replace fr...</td>
-				  <td>No</td>
-				  <td>05-05-2018</td>
-				  
-				</tr>
-				<tr>
-				  <td>YES</td>
-				  <td>Alpha</td>
-				  <td>0026370100</td>
-				  <td>0026270100</td>
-				  <td>Replace fr...</td>
-				  <td>No</td>
-				  <td>05-05-2018</td>
-				  
-				</tr>
-				<tr>
-				   <td>YES</td>
-				  <td>Alpha</td>
-				  <td>0026370100</td>
-				  <td>0026270100</td>
-				  <td>Replace fr...</td>
-				  <td>No</td>
-				  <td>05-05-2018</td>
-				  
-				</tr>
-			    
-			  </table>
-			
-			</div>
-		</div>
-		
-		<br>
-		
-		<div class = "paging">
-		 <div>
-		  <button id="previousPage">Previous</button>
-		  <input type = "button" value = "1" id="page" class="1">
-		  <button id="page" class="2">2</button>
-		  <button id="page" class="3">3</button>
-		  <button id="nextPage">next</button>
-		 </div>
-		</div>
-		</div>
-		</div>
-		</section>
+
+                                        <div class="center-content">
+                                            <input type="button" id="Login" class="btn btn-default" value="Login" >
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single_right_contact">
+                                    <p>If you are not registered or are having issues logging in, please contact the system administrator.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End of Contact Section -->
 
 
 
@@ -271,7 +178,7 @@
 
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="footer-brand">
-                                <img src="assets/images/logo.png" alt="logo" />
+                                <a href="http://eclipxgroup.com/"><img src="assets/images/logo.png" alt="logo" /></a>
                             </div>
                         </div>
 

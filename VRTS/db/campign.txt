@@ -1,0 +1,26 @@
+DROP TABLE MASTER_Recall;
+
+CREATE TABLE MASTER_Recall
+     ( Campign_ID  NUMBER(8) NOT NULL,
+       Recall_Number VARCHAR2(10),
+       PRA_Number VARCHAR(100),
+       Active VARCHAR2(8),
+       Published_Date VARCHAR2(200),
+       Priority_ID NUMBER(8),
+       Recall_Title VARCHAR2(50),
+       Recall_Description VARCHAR2(1000),
+       Recall_Contact_info VARCHAR2(300),
+       Recall_Website VARCHAR2(100),
+       Update_requeird VARCHAR2(100),
+       LastUpdate_Date VARCHAR2(100),
+       LastUpdateBy VARCHAR2(100),
+       CreateDate VARCHAR2(100),
+       CreatedBy VARCHAR2(100), 
+       Primary key (Campign_ID) 
+     ); 
+
+INSERT INTO MASTER_Recall VALUES (1, '1234567890', 'ACCC123456789', 'active', '2016', 1, 'decription as provided by OEM', 'description', 'phone: 0426598755', 'ACCC', 'ture', '04/09/2017', 'John', '18/08/2016', 'Eline');
+INSERT INTO MASTER_Recall VALUES (2, '1344567890', 'ACCC153256789', 'active', '2017', 1, 'decription as provided by OEM', 'description', 'phone: 0423498755', 'ACCC', 'ture', '04/09/2017', 'John', '18/08/2017', 'Eline');
+INSERT INTO MASTER_Recall VALUES (3, '1456567890', 'ACCC235456789', 'active', '2018', 1, 'decription as provided by OEM', 'description', 'phone: 0422349755', 'ACCC', 'ture', '04/09/2017', 'John', '18/08/2018', 'Eline');
+
+commit;

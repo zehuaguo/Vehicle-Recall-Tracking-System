@@ -26,6 +26,58 @@
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
+		<link rel = "stylesheet" href = "assets/css/main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<script>
+			// function getcheck()
+			// {
+				// var checkboxvalue=documentGetElementsByName("A");
+				// var ifCheck;
+				// if(checkboxvalue[0].checked)
+				// {
+					// if(checkboxvalue[1].checked)
+						// ifCheck=" ";
+					// else
+						// ifCheck="active";
+				// }
+				// else()
+				// {
+					// if(checkboxvalue[1].checked)
+						// ifCheck="inactive";
+					// else ifCheck="no";
+				
+				// }
+				// return ifCheck;
+			// }
+			var ifcheck=" ";
+			$(document).ready(function(){
+				$("#searchButton").click(function(){
+					//alert("test");
+					$("#DisplayTable").load("loadvehicleinfom.php?Ma="+escape($("#ma").val())+"&Vin="+escape($("#vin").val())+"&Mo="+escape($("#mo").val())+"&Re="+escape($("#re").val())+"&Manu="+escape($("#manu").val())+"&Bu="+escape($("#bu").val())+"&Status"+escape(ifcheck));
+				});
+				$(".in").on("click",function(){
+					if($("#a0").is(":checked"))
+					{
+						if($("#a1").is(":checked"))
+						{ifcheck=" ";}
+						else
+						{ifcheck="active";}
+					}
+					else
+					{
+						if($("#a1").is(":checked"))
+						{ifcheck="inactive";}
+						else{
+							ifcheck="no";
+						}
+					}
+				//alert(ifcheck);
+				});
+			
+			});
+		
+	</script>
 
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
@@ -86,44 +138,61 @@
         </header>
 
 
-        <section id="contact" class="contact sections">
-            <div class="container">
-                <div class="row">
-                    <div class="main_contact whitebackground">
-                        <div class="head_title text-center">
-                            <h2>Log in</h2>
-                        </div>
-                        <div class="contact_content">
-                            <div class="col-md-6">
-                                <div class="single_left_contact">
-                                   
 
-                                        <div class="form-group">
-                                           <a href="signin by user.html"> <button type="General user" class="form-control" name="General user" placeholder="General user" required="Y"> General user</button></a>
-                                        </div>
+    <div class = "main-nav">	
+	  <div id = "all">
+		
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		
+		<div class="searchDiv">
+			<div class="searchInformation">
+				<form>
+					<input class = "a" name="VIN" id="vin" type="text" placeholder="Vehicle ID Number"/>
+					<input class = "a" name="Re" id="re" type="text" placeholder="Registration"/>
+					<input class = "a" name="CN" id="cn" type="text" placeholder="Campaign Number"/>
+				
+					<label>
+						<input name="A" class="a in" id="a1" value="Inactive" type="checkbox">Inactive 
+					</label>
+					<label>
+						<input name="A" class="a in" id="a0" value="Active" type="checkbox">Active 
+					</label>
+					<br><br>
+					<input class = "a" name="Ma" id="ma" type="text" placeholder="Mark"/>
+					<input class = "a" name="Mo" id="mo" type="text" placeholder="Model"/>
+					<input class = "a" name="Manu" id="manu" type="text" placeholder="Manufacture"/>
+					<input class = "a" name="Bu" id="bu" type="text" placeholder="Business"/>
+					<input type = "button" value = "Search" id="searchButton">
+				</form>
+			</div>
+			
+		</div>
+		
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		<div class = "blank">&nbsp</div>
+		
+		<div class="displayDiv">
+			<p>Information of Vehicle</p><br>
+			<div ID="DisplayTable" style="height:200px;overflow:scroll;">
+			  
+			    
+				
+			    
+			  
+			
+			</div>
+		</div>
+		
+		<div class = "blank">&nbsp</div>
+		
 
-                                        <div class="form-group">
-                                            <a href="signin by admin.html"><button type="Administrator" class="form-control" name="Administrator" placeholder="Administrator" required="Y">Administrator</button></a>
-                                        </div>
-										
-										<div class="form-group">
-                                           <a href="Register_user.php"> <button type="Register" class="form-control" name="Register" placeholder="General user" required="Y"> Register </button></a>
-                                        </div>
-
-                                       
-                                   
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="single_right_contact">
-                                    <p>If you are not registered or are having issues logging in, please contact the system administrator.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- End of Contact Section -->
+	  </div>
+	</div>
+	<br>
+	<br>
 
 
 

@@ -1,0 +1,41 @@
+DROP TABLE Details;
+
+CREATE TABLE Details
+     ( VehicleID NUMBER(8)NOT NULL,
+       VIN VARCHAR2(17),
+       Vehicle_Status VARCHAR2(10),
+       Description VARCHAR2(1000),
+       PRA_NO VARCHAR2(50),
+       RECTIFIED VARCHAR2(50),
+       RECTIFICATION_DATE VARCHAR2(100),
+       LastUpdate_Date VARCHAR2(100),
+       LastUpdateBy VARCHAR2(100),
+       CreateDate VARCHAR2(100),
+       CreatedBy VARCHAR2(100),
+       Priority VARCHAR2(50),
+       CampaignNo VARCHAR(50),
+       Primary key (VehicleID) 
+     ); 
+
+INSERT INTO Details VALUES (1, 'q1242345345676667', 'active', 'description', 'XML123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'high urgent', '123456780');
+INSERT INTO Details VALUES (2, 'q1242344994884885', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (3, 'q1246758849393344', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'middle', '123456780');
+INSERT INTO Details VALUES (4, 'q1269475099003782', 'active', ''description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'high urgent', '123456780');
+INSERT INTO Details VALUES (5, 'q1236567583534645', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'middle', '123456780');
+INSERT INTO Details VALUES (6, 'q1234545674575666', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'middle', '123456780');
+INSERT INTO Details VALUES (7, 'q120089365345t454', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'middle', '123456780');
+INSERT INTO Details VALUES (8, 'q1234547536756745', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'middle', '123456780');
+INSERT INTO Details VALUES (9, 'q1242344442356233', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (10, 'q1246784533666484', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (11, 'q1225642345845456', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (12, 'q1456845687476564', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (13, 'q1240094582388845', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (14, 'q1536678456757645', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (15, 'q1234968938434656', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (16, 'q1234594064982956', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (17, 'q1243458395896345', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (18, 'q1458396822346565', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (19, 'q1243894569024655', 'inactive', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+INSERT INTO Details VALUES (20, 'q1000734753958300', 'active', 'description', '123456', 'yes', '01/05/2018', '04/09/2017', 'John', '18/08/2017', 'Eline', 'urgent', '123456780');
+
+commit;

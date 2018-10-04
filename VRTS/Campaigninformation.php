@@ -1,3 +1,50 @@
+<?
+
+
+	include "pass.php";
+	$connction=ocilogon("zhengzih", $password, "SSID");
+	$Status=$_GET['Status'];
+	//$A=$_POST['A'];
+	//$ifActive="no";
+	//if($A[0])
+	// //{
+		// if($A[1])
+			// $ifActive=" ";
+		// else $ifActive=$A[0];
+		
+	// }
+	//echo $ifActive."<br>".$A[0]."<br>";
+	
+    $sql="SELECT * FROM MASTER_Recall WHERE lower(Campign_ID) LIKE lower('%$CID%')";
+	//echo $sql."<br>";
+	$stmt=ociparse($connction, $sql);
+	ociexecute($stmt);
+
+	if(isset($submit))
+	{
+		$sql1="SELECT * FROM MASTER_Recall";
+		$stmt1=ociparse($connect,$sql);
+		ociexecute($stmt1);
+		$i=0;
+		while(ocifetch($stmt1))
+		{
+			if(ociresult($stmt1,'ID')>$i)
+				$i=ociresult($stmt1,'ID');
+			
+			
+		}
+		$i++;
+		$queryinsert="INSERT INTO MASTER_Recall VALUES (".$i.", '1456567890', 'ACCC235456789', 'active', '2018', 1, 'decription as provided by OEM', '".$notes."', 'phone: 0422349755', 'ACCC', 'ture', '".$date."', '".$name."', '18/08/2018', 'Eline');
+";
+		$stmt=oci_parse($connect,$query);
+		
+		
+	}
+	
+
+
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -26,8 +73,43 @@
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
-
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+				<script>
+			// var v1,v2,v3,v4,v5,v6;
+					
+				
+			// $(document).ready(function(){
+				// $("#change").click(function(){
+					// //alert("test");
+					// $("#DisplayTable").html("<form method='POST' action='Recallfor.php?VIN="+$("#vintd").text()+"'><table id = 'selectTable'><tr><th></th><th>Active Recall?</th><th>Campaign Priority</th><th>Campaign No</th><th>PRA No</th><th>Description</th><th>Rectified?</th><th>Rectification Date</th></tr><tr><td><button type='submit' id='yes'>√</button> <a href='Recallfor.php?VIN="+$("#vintd").text()+"'><button type='button' id='no'>×</button></a>      </td><td><input name='i1' type='text' id='1' value='"+$("#1").text()+"'></td><td><input name='i2' type='text' id='2' value='"+$("#2").text()+"'></td><td><input name='i3' type='text' id='3' value='"+$("#3").text()+"'></td><td><input name='i4' type='text' id='4' value='"+$("#4").text()+"'></td><td><input name='i5' type='text' id='5' value='"+$("#5").text()+"'></td><td><input name='i6' type='text' id='6' value='"+$("#6").text()+"'></td><td>05-05-2018</td></tr></table></form>");
+
+				// });
+
+					// v1=$("#1").text();
+					// v2=$("#2").text();
+					// v3=$("#3").text();
+					// v4=$("#4").text();
+					// v5=$("#5").text();
+					// v6=$("#6").text();	
+				// // $("#selectTable").ready(function(){
+					// // $("#no").click(function(){
+						// // alert("test");
+						// // //$("#DisplayTable").html("<tr><th></th><th>Active Recall?</th><th>Campaign Priority</th><th>Campaign No</th><th>PRA No</th><th>Description</th><th>Rectified?</th><th>Rectification Date</th></tr><tr><td><span id='change'>✎</span></td><td id='1'>"+v1+"</td><td id='2'>"+v2+"</td><td id='3'>"+v3+"</td><td id='4'>"+v4+"</td><td id='5'>"+v5+"</td><td id='6'>"+v6+"</td><td></td></tr>");
+					
+					// // });
+					
+					
+				// // });
+			
+			// });
+			// function cancle()
+			// {
+				// //alert(v1);
+				// document.getElementById("#selectTable").innerHTML="<tr><th></th><th>Active Recall?</th><th>Campaign Priority</th><th>Campaign No</th><th>PRA No</th><th>Description</th><th>Rectified?</th><th>Rectification Date</th></tr><tr><td><span id='change'>✎</span></td><td id='1'>"+v1+"</td><td id='2'>"+v2+"</td><td id='3'>"+v3+"</td><td id='4'>"+v4+"</td><td id='5'>"+v5+"</td><td id='6'>"+v6+"</td><td></td></tr>";
+			// }
+		
+		</script>
 		<style>
 			.informationDisplay{
 				width: 90%;
@@ -130,7 +212,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="Logo" /></a>
+                    <a class="navbar-brand" href="http://eclipxgroup.com/"><img src="assets/images/logo.png" alt="Logo" /></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -180,186 +262,57 @@
 				
 					
 					
-				
-				<div class="informationDisplay">
-					<p class="dets"><b>Details</b></p>
-					<p class="de"><b>Defect</b></p>
-					
-					<div class="details">
-						<p><b>Campaign Number: </b></p><p class="value">21589586</p>
-						<p><b>PRA Number: </b></p><p class="value">HA15629586</p>
-						<p><b>Data Published: </b></p><p class="value">20180606</p>
-						<p><b>Priority: </b></p><p class="value">urgent</p>
-					</div>
-					
-					<div class="defect">
-						<p>Recall: </p>
-						<p>Defect Description: </p>
-						<p>Contact Information: </p>
-						<p>Website: </p>
-					</div>
-					<div class="tableTitle">
-						<table border="3px">
-							<tr>
-								<td class="tt Fi">Recalled Date</td>
-								<td class="tt Se">Recalled By</td>
-								<td class="tt Th">Notes</td>
-							</tr>
-						</table>
-					</div>
-					<div class="HistoryDsplayDiv">
-						<table border="3px">
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-								<tr>
-									<td class="Fi">20180606</td>
-									<td class="Se">Augus Lee</td>
-									<td class="Th">Notes</td>
-								</tr>
-						</table>
+<?		
+
+					while(ocifetch($stmt))
+					{
+						$html='<div class="informationDisplay">
+							<p class="dets"><b>Details</b></p>
+							<p class="de"><b>Defect</b></p>
 							
-						<div class="pages">
-							<ul class="pagination">
-								<li><a href="#">&laquo;</a>
-								</li>
-								<li class="active"><a href="#">1</a>
-								</li>
-								<li><a href="#">2</a>
-								</li>
-								<li><a href="#">3</a>
-								</li>
-								<li><a href="#">4</a>
-								</li>
-								<li><a href="#">5</a>
-								</li>
-								<li><a href="#">&raquo;</a>
-								</li>
-							</ul>
-						</div>
-						
-					</div>.
-				</div>
-
-                
-
+							<div class="details">
+								<p><b>Campaign Number: </b></p><p class="value">'.ociresult($stmt,"RECALL_NUMBER").'</p>
+								<p><b>PRA Number: </b></p><p class="value">'.ociresult($stmt,"PRA_NUMBER").'</p>
+								<p><b>Data Published: </b></p><p class="value">'.ociresult($stmt,"CREATEDATE").'</p>
+								<p><b>Priority: </b></p><p class="value">'.ociresult($stmt,"PRIORITY_ID").'</p>
+							</div>
+							
+							<div class="defect">
+								<p>Recall: '.ociresult($stmt,"PRIORITY_ID").'</p>
+								<p>Defect Description: '.ociresult($stmt,"RECALL_DESCRIPTION").'</p>
+								<p>Contact Information: '.ociresult($stmt,"RECALL_CONTACT_INFO").'</p>
+								<p>Website: </p>
+							</div>
+							<div class="tableTitle">
+								<table border="3px">
+									<tr>
+										<td class="tt Fi">Recalled Date</td>
+										<td class="tt Se">Recalled By</td>
+										<td class="tt Th">Notes</td>
+									</tr>
+								</table>
+							</div>
+							<div class="HistoryDsplayDiv">
+								<table border="3px">
+										<tr>
+											<td class="Fi">'.ociresult($stmt,"LASTUPDATE_DATE").'</td>
+											<td class="Se">'.ociresult($stmt,"LASTUPDATEBY").'</td>
+											<td class="Th">'.ociresult($stmt,"RECALL_DESCRIPTION").'</td>
+										</tr>
+								</table>
+								
+							</div>.
+						</div>';
+					}
+					echo $html;
+?>
+            <form action="Campaigninformation.php" method="post">
+				<input type="text" placeholder="date" name="date">
+				<input type="text" placeholder="name" name="name">
+				<input type="textarae" placeholder="notes" name="notes">
+				<input type="submit" placeholder="submit" name="submit">
+			</form>    
+			
                 <!-- Example row of columns -->
 
             </div> <!-- /container -->
@@ -398,7 +351,7 @@
 
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="footer-brand">
-                                <img src="assets/images/logo.png" alt="logo" />
+                                <a href="http://eclipxgroup.com/"><img src="assets/images/logo.png" alt="logo" /></a>
                             </div>
                         </div>
 

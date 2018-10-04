@@ -1,0 +1,24 @@
+DROP TABLE comunication;
+
+CREATE TABLE comunication
+     ( Veh_Comm_ID  NUMBER(8) NOT NULL,
+       VIN VARCHAR2(20),       
+       Vehicle_ID  NUMBER(8),
+       Recall_ID NUMBER(8),
+       Comm_Method_ID VARCHAR2(10),
+       Recipient VARCHAR2(10),
+       Description VARCHAR2(100),
+       LastUpdate_Date VARCHAR2(100),
+       LastUpdateBy VARCHAR2(100),
+       CreateDate VARCHAR2(100),
+       CreatedBy VARCHAR2(100), 
+       Recall VARCHAR2(50),
+       Contact VARCHAR2(100),
+       Primary key (Vehicle_ID) 
+     ); 
+
+INSERT INTO comunication VALUES (1, 'q1242345345676667', 1, 1,'email', 'John', 'descriptions', '04/09/2017', 'John', '18/08/2017', 'Eline', '003265895', '5265@google.com');
+INSERT INTO comunication VALUES (2, 'q1242344994884885', 2, 2,'email', 'John', 'descriptions', '04/09/2017', 'John', '18/08/2017', 'Eline', 'other', '5265@google.com');
+INSERT INTO comunication VALUES (3, 'q1246758849393344', 3, 3,'email', 'John', 'descriptions', '04/09/2017', 'John', '18/08/2017', 'Eline', '006265295', '5265@google.com');
+
+commit;

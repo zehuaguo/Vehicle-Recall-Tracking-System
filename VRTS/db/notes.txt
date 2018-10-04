@@ -1,0 +1,16 @@
+DROP TABLE NOTES;
+
+CREATE TABLE NOTES
+     ( recall_ID  NUMBER(8) NOT NULL,
+       VIN VARCHAR2(17),
+       recall_by VARCHAR2(50),
+       recall_date VARCHAR(200),
+       notes VARCHAR(500),
+       Primary key (recall_ID) 
+     ); 
+
+INSERT INTO NOTES VALUES (1, 'q1242345345676667', 'John', '18/08/2017', 'notes');
+INSERT INTO NOTES VALUES (2, 'q1242344994884885', 'John', '18/08/2016', 'notes');
+INSERT INTO NOTES VALUES (3, 'q1246758849393344', 'Eline', '18/01/2017', 'notes');
+
+commit;

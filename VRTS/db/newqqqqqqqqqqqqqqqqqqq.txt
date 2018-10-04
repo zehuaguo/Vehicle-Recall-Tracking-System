@@ -1,0 +1,31 @@
+DROP TABLE VehicleRecalls;
+
+CREATE TABLE VehicleRecalls
+     ( Vehicle_ID  NUMBER(8) NOT NULL,
+       VIN VARCHAR2(17),
+       Vehicle_Status VARCHAR2(10),
+       BU_ID VARCHAR(100),
+       Registration VARCHAR2(8),
+       Make VARCHAR2(200),
+       Model VARCHAR2(200),
+       ModelYear VARCHAR2(20),
+       Description VARCHAR2(1000),
+       CustodianName VARCHAR2(300),
+       CustodianMobile VARCHAR2(100),
+       CustodianEmail VARCHAR2(100),
+       CustodianAddress VARCHAR2(100),
+       Veh_Organisation VARCHAR2(100),
+       Veh_Organisation_Contact VARCHAR2(100),
+       Veh_Organisation_Email VARCHAR2(100),
+       Veh_Organisation_Address VARCHAR2(200),
+       LastUpdate_Date VARCHAR2(100),
+       LastUpdateBy VARCHAR2(100),
+       CreateDate VARCHAR2(100),
+       CreatedBy VARCHAR2(100), 
+       Primary key (Vehicle_ID) 
+     ); 
+
+INSERT INTO VehicleRecalls VALUES (1, 'q1242345345676667', 'active', 'FleetPlus', '25896541', 'BWM', 'BWMX1', '2010', 'description', 'Paris', '0452566539', '5265@google.com', 'No.1 Sun Street ', 'Eclipx', '123456789', 'qwe@goodle.com', 'No.2 Win Street', '04/09/2017', 'John', '18/08/2017', 'Eline');
+INSERT INTO VehicleRecalls VALUES (2, 'q1242345345676667', 'active', 'FleetPartners', '25896541', 'BWM', 'BWMX2', '2010', 'description', 'Paris', '0452566539', '5265@google.com', 'No.14 Sun Street ', 'Eclipx', '121236789', '156@goodle.com', 'No.2 Win Street', '04/09/2017', 'John', '18/08/2017', 'Eline');
+
+commit;

@@ -26,8 +26,28 @@
 
         <!--Theme Responsive css-->
         <link rel="stylesheet" href="assets/css/responsive.css" />
-        <link rel = "stylesheet" href = "assets/css/campaigns.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#foremail").keyup(function(){
+				if($("#foremail").val().length==0){
+					$("#pforemail").attr("style", "color:red");
+					$("#pforemail").text("email cannot be empty");}
+				else if($("#foremail").val().search(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{1,4}$/)==0? true: false){
+					$("#pforemail").attr("style", "color:green");
+					$("#pforemail").text("email validated");
+					$("#Login").attr("type", "submit");
+					}
+				else{
+					$("#pforemail").attr("style", "color:red");
+					$("#pforemail").text("please type on real email");
+				}
+				});
+			
+			});
 
+		
+		</script>
         <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     </head>
     <body>
@@ -46,14 +66,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="Logo" /></a>
+                    <a class="navbar-brand" href="http://eclipxgroup.com/"><img src="assets/images/logo.png" alt="Logo" /></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-right">
-                       <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="index.html">Home</a></li>
                         
                         <li><a href="campaigns.html">Campaigns</a></li>
                         
@@ -86,99 +106,43 @@
             </div>
         </header>
 
-<div class = "main-nav">    
-      <div id = "all">
-        <div class = "blank">&nbsp</div>
-        <div class = "blank">&nbsp</div>
-        <div class = "blank">&nbsp</div>
-        
-        <div class="searchDiv">
-            <div class="searchInformation">
-                <form>
-                    <input class = "a" name="CN" type="text" value="Campaign Number"/>
-                    <input class = "a" name="PRA" type="text" value="PRA Number"/>
-                    <input class = "a" name="Ye" type="text" value="Year"/><br>
-                    
-                
-                    <label>
-                        <input name="IA" value="Inactive" type="checkbox">Inactive 
-                    </label>
-                    <label>
-                        <input name="A" value="Active" type="checkbox">Active 
-                    </label>
-                    <br><br>
-                    <input type = "button" value = "Search" id="searchButton">
-                </form>
+
+        <section id="contact" class="contact sections">
+            <div class="container">
+                <div class="row">
+                    <div class="main_contact whitebackground">
+                        <div class="head_title text-center">
+                            <h2>Administrator Log in</h2>
+                        </div>
+                        <div class="contact_content">
+                            <div class="col-md-6">
+                                <div class="single_left_contact">
+                                    <form action="loginuser.php" id="formid">
+
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="foremail" name="email" placeholder="Email" required="Y">
+											<p id="pforemail"></p>
+										</div>
+
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" id="idforpassword" name="password" placeholder="Password" required="Y">
+                                        </div>
+
+                                        <div class="center-content">
+                                            <input type="button" id="Login" class="btn btn-default" value="Login" >
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="single_right_contact">
+                                    <p>If you are not registered or are having issues logging in, please contact the system administrator.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-        </div>
-        
-        <div class = "blank">&nbsp</div>
-        <div class = "blank">&nbsp</div>
-        <div class = "blank">&nbsp</div>
-        
-        <div class="displayDiv">
-            <p>Campaign Records</p><br>
-            <div ID="DisplayTable" style="height:200px;overflow:scroll;">
-              <table id = selectTable>
-                <tr>
-                  <th>Campaign Number</th>
-                  <th>PRA Number</th>
-                  <th>Data Published</th>
-                  <th>Priority</th>
-                  <th>Active Recall</th>
-                </tr>
-                <tr>
-                  <td>71C051</td>
-                  <td>2017/16338</td>
-                  <td>04/10/2017</td>
-                  <td>High</td>
-                  <td>No</td>
-                </tr>
-                <tr>
-                  <td>81C052</td>
-                  <td>2015/16339</td>
-                  <td>05/10/2017</td>
-                  <td>Medium</td>
-                  <td>Yes</td>
-                </tr>
-                <tr>
-                  <td>91C053</td>
-                  <td>2017/16340</td>
-                  <td>06/10/2017</td>
-                  <td>High</td>
-                  <td>No</td>
-                </tr>
-                <tr>
-                  <td>20C054</td>
-                  <td>2016/16341</td>
-                  <td>07/10/2017</td>
-                  <td>Medium</td>
-                  <td>Yes</td>
-                </tr>
-                
-              </table>
-            
-            </div>
-        </div>
-        
-        <div class = "blank">&nbsp</div>
-        
-        <div class = "paging">
-         <div>
-          <button id="previousPage">Previous</button>
-          <input type = "button" value = "1" id="page" class="1">
-          <button id="page" class="2">2</button>
-          <button id="page" class="3">3</button>
-          <button id="nextPage">next</button>
-         </div>
-        </div>
-      </div>
-    </div>
-    <br>
-    <br>
-        
-        <!-- <div id = "blank">&nbsp</div> -->
+        </section><!-- End of Contact Section -->
 
 
 
@@ -215,7 +179,7 @@
 
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="footer-brand">
-                                <img src="assets/images/logo.png" alt="logo" />
+                                <a href="http://eclipxgroup.com/"><img src="assets/images/logo.png" alt="logo" /></a>
                             </div>
                         </div>
 
